@@ -1,17 +1,340 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Prachi Sakalkar</title>
-  </head>
-  <body>
-    <h1>Prachi Sakalkar</h1>
-    <p>Product-focused Data Analyst | Experimentation | BI | SQL</p>
-    <p>
-      <a href="https://www.linkedin.com/in/prachi-sakalkar-3ba350a0">LinkedIn</a>
-    </p>
-    <p>
-      <a href="https://github.com/pps200000">GitHub</a>
-    </p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prachi Sakalkar | Portfolio</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --text:#e8eefc;
+      --muted:#b6c2e2;
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 14px 44px rgba(0,0,0,.50);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(110,231,255,.20), transparent 60%),
+        radial-gradient(700px 400px at 85% 10%, rgba(167,139,250,.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(110,231,255,.10), transparent 60%),
+        var(--bg);
+      min-height:100vh;
+      line-height:1.6;
+    }
+
+    /* Layout */
+    .wrap{max-width:1040px;margin:0 auto;padding:24px 18px 70px}
+
+    /* Navbar */
+    .nav{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.65);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      max-width:1040px;margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:-.02em;
+      white-space:nowrap;
+    }
+    .brand-badge{
+      width:34px;height:34px;border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.95), rgba(167,139,250,.95));
+      box-shadow: var(--shadow);
+      display:grid; place-items:center;
+      color:#08101f;
+      font-weight:900;
+    }
+    .nav-links{
+      display:flex; gap:14px; flex-wrap:wrap;
+      align-items:center; justify-content:flex-end;
+    }
+    .nav-links a{
+      color:rgba(232,238,252,.88);
+      text-decoration:none;
+      font-size:13.5px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+    }
+    .nav-links a:hover{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media(max-width:920px){
+      .hero{grid-template-columns:1fr}
+    }
+    .card{
+      background: rgba(15,26,51,.72);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .name{font-size:44px; font-weight:900; letter-spacing:-.03em; margin:0}
+    .tagline{margin:8px 0 0;color:var(--muted); font-size:16px}
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      padding:8px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px;
+      background:rgba(255,255,255,.04); color:var(--muted); font-size:13px
+    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+
+    a.btn{
+      text-decoration:none; font-weight:800; font-size:14px;
+      padding:10px 14px; border-radius:14px; display:inline-flex; align-items:center; gap:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, background .12s ease;
+    }
+    a.btn.primary{
+      background: linear-gradient(90deg, rgba(110,231,255,.92), rgba(167,139,250,.92));
+      color:#08101f; border:none;
+    }
+    a.btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.07)}
+    .icon{
+      width:18px;height:18px; display:inline-block;
+      vertical-align:-3px;
+      fill: currentColor;
+    }
+
+    /* Sections */
+    section{scroll-margin-top:90px; margin-top:14px}
+    h2{margin:0 0 10px; font-size:18px}
+    p{margin:0; color:var(--muted)}
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .grid2{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px;
+    }
+    @media(max-width:920px){ .grid2{grid-template-columns:1fr} }
+
+    /* Project cards */
+    .proj{display:grid; gap:10px}
+    .item{
+      padding:14px; border-radius:18px; border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03)
+    }
+    .title{font-weight:900; margin:0; letter-spacing:-.01em}
+    .meta{color:var(--muted); margin:4px 0 0; font-size:13px}
+    .bul{margin:8px 0 0; color:var(--muted)}
+    .kpis{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .kpi{
+      font-size:12px; padding:6px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03);
+      color:rgba(232,238,252,.85);
+    }
+
+    /* Footer */
+    .footer{
+      margin-top:18px; color:rgba(182,194,226,.78); font-size:13px;
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+    .link{color:var(--accent); text-decoration:none}
+    .link:hover{text-decoration:underline}
+
+    /* Small helper */
+    .muted{color:var(--muted)}
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar (inspired layout: Home / Education / Skills / Projects / Contact) -->
+  <div class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-badge">PS</div>
+        <div>Prachi Sakalkar</div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="card">
+        <h1 class="name">Prachi Sakalkar</h1>
+        <div class="tagline">Data Analyst @ Texas Workforce Commission (TWC) • Product Analytics • Experimentation • BI</div>
+
+        <div style="height:12px"></div>
+        <p>
+          I’m a Data Analyst at <b>TWC</b> where I build <b>KPI frameworks</b> and <b>Tableau/Power BI dashboards</b> for program performance and leadership reporting.
+          I’ve also supported the <b>WorkInTexas job portal</b> by defining product metrics, analyzing job-seeker funnels, and running experiments to improve engagement and outcomes.
+          Previously, I contributed analytics work at <b>Turner</b> and <b>Acme</b>, partnering with stakeholders to translate business questions into actionable insights.
+        </p>
+
+        <div class="pillrow">
+          <span class="pill">KPIs & Dashboards</span>
+          <span class="pill">WorkInTexas Product Analytics</span>
+          <span class="pill">A/B Testing</span>
+          <span class="pill">SQL + Python</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">
+            <!-- mail icon -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+            </svg>
+            Contact Me
+          </a>
+          <a class="btn" href="https://github.com/pps200000" target="_blank" rel="noreferrer" title="GitHub">
+            <!-- github icon -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .5C5.73.5.75 5.64.75 12c0 5.1 3.2 9.43 7.64 10.96.56.1.77-.25.77-.55v-2c-3.11.7-3.77-1.35-3.77-1.35-.5-1.3-1.22-1.64-1.22-1.64-1-.7.08-.7.08-.7 1.1.08 1.68 1.15 1.68 1.15.98 1.7 2.57 1.2 3.2.92.1-.72.38-1.2.69-1.48-2.48-.29-5.09-1.26-5.09-5.6 0-1.24.43-2.25 1.14-3.05-.12-.29-.5-1.45.11-3.03 0 0 .93-.3 3.05 1.16.88-.25 1.82-.38 2.76-.38s1.88.13 2.76.38c2.12-1.46 3.05-1.16 3.05-1.16.61 1.58.23 2.74.11 3.03.71.8 1.14 1.81 1.14 3.05 0 4.35-2.62 5.31-5.12 5.6.39.35.74 1.02.74 2.06v3.05c0 .3.21.66.78.55A11.53 11.53 0 0 0 23.25 12C23.25 5.64 18.27.5 12 .5z"/>
+            </svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/prachi-sakalkar-3ba350a0" target="_blank" rel="noreferrer" title="LinkedIn">
+            💼 LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Quick Highlights</h2>
+        <ul>
+          <li><b>TWC:</b> KPI dashboards + reporting layers for program performance</li>
+          <li><b>WorkInTexas:</b> funnel metrics, engagement analysis, experimentation support</li>
+          <li><b>Experimentation:</b> A/B testing + statistical analysis for product decisions</li>
+          <li><b>Modeling:</b> LTV modeling & forecasting projects</li>
+        </ul>
+
+        <div style="height:12px"></div>
+
+        <h2>Contact</h2>
+        <p class="muted">
+          Email: <a class="link" href="mailto:ppsakalkar@gmail.com">ppsakalkar@gmail.com</a>
+        </p>
+        <p class="muted" style="margin-top:6px">
+          GitHub: <a class="link" href="https://github.com/pps200000" target="_blank" rel="noreferrer">pps200000</a>
+        </p>
+        <p class="muted" style="margin-top:6px">
+          LinkedIn: <a class="link" href="https://www.linkedin.com/in/prachi-sakalkar-3ba350a0" target="_blank" rel="noreferrer">prachi-sakalkar</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- EDUCATION + SKILLS -->
+    <div class="grid2">
+      <section id="education" class="card">
+        <h2>Education</h2>
+        <p><b>University of Texas at Dallas</b></p>
+        <p class="muted">Master’s in Business Analytics</p>
+      </section>
+
+      <section id="skills" class="card">
+        <h2>Technical Skills</h2>
+        <div class="kpis">
+          <span class="kpi">SQL</span>
+          <span class="kpi">Tableau</span>
+          <span class="kpi">Python</span>
+          <span class="kpi">Power BI</span>
+          <span class="kpi">Pandas / NumPy</span>
+          <span class="kpi">Statistical Testing</span>
+        </div>
+        <div style="height:10px"></div>
+        <p class="muted">Also: KPI design, funnels, dashboards, experimentation & storytelling.</p>
+      </section>
+    </div>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <div class="proj">
+        <div class="item">
+          <p class="title">Amazon Sales Insights — A/B Testing, LTV Modeling & Product Sense</p>
+          <p class="meta">Experimentation | Statistics | Business Impact</p>
+          <ul class="bul">
+            <li>Designed and executed an A/B test across 1,000+ Amazon product listings to evaluate discount strategies.</li>
+            <li>Found a statistically significant 6% uplift in engagement for high-discount products.</li>
+            <li>Built an LTV model combining pricing, margins, retention assumptions, and review volume.</li>
+            <li>Identified that the top 25% high-value users contribute ~80% of total LTV.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <p class="title">Walmart Weekly Sales Forecasting System</p>
+          <p class="meta">Time Series | Forecasting | Trend Analysis</p>
+          <ul class="bul">
+            <li>Forecasted weekly demand using historical retail sales data.</li>
+            <li>Evaluated model performance using RMSE and trend analysis.</li>
+            <li>Analyzed seasonality patterns to support planning insights.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p class="muted">Let’s connect — happy to chat about product analytics, BI, and experimentation.</p>
+
+      <div class="cta">
+        <a class="btn primary" href="mailto:ppsakalkar@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+          </svg>
+          Email Me
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/prachi-sakalkar-3ba350a0" target="_blank" rel="noreferrer">💼 LinkedIn</a>
+        <a class="btn" href="https://github.com/pps200000" target="_blank" rel="noreferrer">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 .5C5.73.5.75 5.64.75 12c0 5.1 3.2 9.43 7.64 10.96.56.1.77-.25.77-.55v-2c-3.11.7-3.77-1.35-3.77-1.35-.5-1.3-1.22-1.64-1.22-1.64-1-.7.08-.7.08-.7 1.1.08 1.68 1.15 1.68 1.15.98 1.7 2.57 1.2 3.2.92.1-.72.38-1.2.69-1.48-2.48-.29-5.09-1.26-5.09-5.6 0-1.24.43-2.25 1.14-3.05-.12-.29-.5-1.45.11-3.03 0 0 .93-.3 3.05 1.16.88-.25 1.82-.38 2.76-.38s1.88.13 2.76.38c2.12-1.46 3.05-1.16 3.05-1.16.61 1.58.23 2.74.11 3.03.71.8 1.14 1.81 1.14 3.05 0 4.35-2.62 5.31-5.12 5.6.39.35.74 1.02.74 2.06v3.05c0 .3.21.66.78.55A11.53 11.53 0 0 0 23.25 12C23.25 5.64 18.27.5 12 .5z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+
+      <div class="footer">
+        © <span id="year"></span> Prachi Sakalkar • Built with GitHub Pages
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // tiny touch: auto update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
 </html>
+
